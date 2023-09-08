@@ -4,7 +4,13 @@ from django.shortcuts import render
 # for some reasons my github its not recognizing my commits and pushs
 
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        'curso': 'Programação Web com Django Framework'
+    }
+    return render(request, 'index.html', context)
 
 def contact(request):
-    return render(request, 'contact.html')
+    contactList = {
+        'client': 'Julio: (89) 91242-9562'
+    }
+    return render(request, 'contact.html', contactList)
