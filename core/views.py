@@ -4,8 +4,18 @@ from django.shortcuts import render
 # for some reasons my github its not recognizing my commits and pushs
 
 def index(request):
+    print(dir(request.user))
+    print(dir(request.body.__add__.__str__))
+    print(f"User-Agent: {request.headers['User-Agent']}")
+
+    if str(request.user) == 'danielgomes@gmail.com.br':
+        teste = 'Usuário logado'
+    else:
+        teste = 'Usuário não logado'
+
     context = {
-        'curso': 'Programação Web com Django Framework'
+        'curso': 'Programação Web com Django Framework',
+        'logado': teste
     }
     return render(request, 'index.html', context)
 
