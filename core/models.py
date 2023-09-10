@@ -11,7 +11,7 @@ class Produto(models.Model):
         return self.nome
 
 class Cliente(models.Model):
-    nome = models.CharField('Name', max_length=100)
+    nome = models.CharField('Name1', max_length=100)
     sobrenome = models.CharField('Sobrenome', max_length=100)
     email = models.CharField('Email', max_length=100)
 
