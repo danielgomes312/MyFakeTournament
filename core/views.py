@@ -1,22 +1,14 @@
 from django.shortcuts import render
+from .models import Produto
 
 # Create your views here.
-# for some reasons my github its not recognizing my commits and pushs
+# for some reasons my github its not recognizing my commits and pushs / problem solved
 
 def index(request):
-    print(dir(request.user))
-    print(dir(request.body))
-    print(f"User: {request.user}")
-    print(f"User-Agent: {request.headers['User-Agent']}")
-
-    if str(request.user) == 'AnonymousUser':
-        teste = 'Usuário não logado'
-    else:
-        teste = 'Usuário logado'
-
+    produtos = Produto.objects.all()
     context = {
         'curso': 'Programação Web com Django Framework',
-        'logado': teste
+        'produtos': produtos,
     }
     return render(request, 'index.html', context)
 
